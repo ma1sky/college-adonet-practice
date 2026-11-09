@@ -1,12 +1,4 @@
-IF DB_ID(N'CollegeAdo') IS NULL
-BEGIN
-    EXEC(N'CREATE DATABASE CollegeAdo;');
-END;
-GO
-
-USE CollegeAdo;
-GO
-
+-- Выполняется в базе CollegeAdo. Базу предварительно создаёт проект setup.
 IF OBJECT_ID(N'dbo.Students', N'U') IS NULL
 BEGIN
     CREATE TABLE dbo.Students
@@ -24,7 +16,6 @@ BEGIN
         (N'Борис Петров', N'ИСП-21', NULL),
         (N'Вера Соколова', N'ИСП-22', N'vera@example.com');
 END;
-GO
 
 IF OBJECT_ID(N'dbo.StudentTransfers', N'U') IS NULL
 BEGIN
@@ -43,4 +34,3 @@ BEGIN
             CHECK (FromGroup <> ToGroup)
     );
 END;
-GO
