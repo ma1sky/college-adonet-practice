@@ -1,0 +1,22 @@
+{
+  "name": "ADO.NET and SQL Server practice",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "runServices": ["app", "db"],
+  "workspaceFolder": "/workspaces/adonet-practice",
+  "shutdownAction": "stopCompose",
+  "overrideCommand": false,
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "8gb"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-dotnettools.csharp", "ms-mssql.mssql"]
+    }
+  },
+  "portsAttributes": {
+    "1433": { "onAutoForward": "ignore" }
+  },
+  "postCreateCommand": "bash .devcontainer/setup.sh"
+}
